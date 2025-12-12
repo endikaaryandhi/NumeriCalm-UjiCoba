@@ -39,18 +39,18 @@ export default function ScreeningResult() {
           </div>
 
           <div className="text-left bg-white p-6 rounded-2xl text-sm text-gray-600 space-y-2 border-2 border-gray-100">
-            [cite_start]<p><strong>Keterangan Skor: [cite: 50, 56]</strong></p>
+            <p><strong>Keterangan Skor:</strong></p>
             <ul className="list-disc pl-5 space-y-1">
-              [cite_start]<li>Rendah: Skor 12 - 19 [cite: 57]</li>
-              [cite_start]<li>Sedang: Skor 20 - 27 [cite: 58]</li>
-              [cite_start]<li>Tinggi: Skor 28 - 36 [cite: 59]</li>
+              <li>Rendah: Skor 12 - 19</li>
+              <li>Sedang: Skor 20 - 27</li>
+              <li>Tinggi: Skor 28 - 36</li>
             </ul>
-            <p className="mt-4 text-xs italic">Range skor: 12-36. [cite_start]Mean=24, SD=4 [cite: 51, 52, 53, 54, 55]</p>
+            <p className="mt-4 text-xs italic">Range skor: 12-36. Mean=24, SD=4</p>
           </div>
 
            <div className="bg-nc-sky/10 p-6 rounded-2xl text-sm text-nc-brown-dark border-2 border-nc-sky/20">
             <p className="font-bold mb-2">Catatan Penting:</p>
-            <p>Hasil screening tidak dapat menggantikan penilaian profesional dari tenaga ahli. [cite_start]Jika Anda membutuhkan penanganan lebih lanjut, kami selalu menyarankan untuk berkonsultasi dengan profesional. [cite: 116, 117]</p>
+            <p>Hasil screening tidak dapat menggantikan penilaian profesional dari tenaga ahli. Jika Anda membutuhkan penanganan lebih lanjut, kami selalu menyarankan untuk berkonsultasi dengan profesional.</p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">

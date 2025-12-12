@@ -37,7 +37,7 @@ export default function AdminDashboard() {
     });
     const statsData = [
       { name: 'Rendah', count: counts.Rendah, color: '#7ED657' },
-      { name: 'Sedang', count: counts.Sedang, color: '#77E86' },
+      { name: 'Sedang', count: counts.Sedang, color: '#F7E86A' },
       { name: 'Tinggi', count: counts.Tinggi, color: '#E67337' },
     ];
     setStats(statsData);
@@ -46,10 +46,10 @@ export default function AdminDashboard() {
   if (loading) return <div className="flex h-[50vh] items-center justify-center"><Loader2 className="animate-spin text-nc-wood" size={40} /></div>;
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12 space-y-8">
-      <h1 className="text-4xl font-bold text-nc-wood">Admin Dashboard</h1>
+    <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-8">
+      <h1 className="text-3xl md:text-4xl font-bold text-nc-wood text-center md:text-left">Admin Dashboard</h1>
       
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
          {stats.map(stat => (
             <Card key={stat.name} className="border-2" style={{borderColor: stat.color}}>
                <CardContent className="p-6 flex items-center justify-between">
@@ -67,7 +67,7 @@ export default function AdminDashboard() {
         <CardHeader>
           <CardTitle>Statistik Kategori Kecemasan</CardTitle>
         </CardHeader>
-        <CardContent className="h-[300px]">
+        <CardContent className="h-[250px] md:h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={stats}>
               <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -88,25 +88,25 @@ export default function AdminDashboard() {
         <CardHeader>
           <CardTitle>Riwayat Submit Terbaru</CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left">
+        <CardContent className="p-0 md:p-6 pt-0">
+          <div className="overflow-x-auto w-full">
+            <table className="w-full text-sm text-left min-w-[600px]">
               <thead className="text-xs text-nc-brown-dark uppercase bg-nc-cream/50 font-bold">
                 <tr>
-                  <th className="px-6 py-4 rounded-tl-xl">Tanggal</th>
-                  <th className="px-6 py-4">Email Pengguna</th>
-                  <th className="px-6 py-4">Skor Total</th>
-                  <th className="px-6 py-4 rounded-tr-xl">Kategori</th>
+                  <th className="px-4 md:px-6 py-3 md:py-4 rounded-tl-xl">Tanggal</th>
+                  <th className="px-4 md:px-6 py-3 md:py-4">Email Pengguna</th>
+                  <th className="px-4 md:px-6 py-3 md:py-4">Skor Total</th>
+                  <th className="px-4 md:px-6 py-3 md:py-4 rounded-tr-xl">Kategori</th>
                 </tr>
               </thead>
               <tbody>
                 {results.map((result) => (
                   <tr key={result.id} className="bg-white border-b border-gray-100 hover:bg-gray-50">
-                    <td className="px-6 py-4 font-medium">{new Date(result.created_at).toLocaleDateString('id-ID')}</td>
-                    <td className="px-6 py-4">{result.profiles?.email || 'Guest'}</td>
-                    <td className="px-6 py-4 font-bold">{result.total_score}</td>
-                    <td className="px-6 py-4">
-                       <span className={`px-3 py-1 rounded-full text-xs font-bold
+                    <td className="px-4 md:px-6 py-3 md:py-4 font-medium">{new Date(result.created_at).toLocaleDateString('id-ID')}</td>
+                    <td className="px-4 md:px-6 py-3 md:py-4">{result.profiles?.email || 'Guest'}</td>
+                    <td className="px-4 md:px-6 py-3 md:py-4 font-bold">{result.total_score}</td>
+                    <td className="px-4 md:px-6 py-3 md:py-4">
+                       <span className={`px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap
                         ${result.category === 'Rendah' ? 'bg-nc-grass/20 text-nc-blue-dark' : 
                           result.category === 'Sedang' ? 'bg-nc-yellow/20 text-yellow-700' : 
                           'bg-nc-wood/20 text-nc-wood'}`}>

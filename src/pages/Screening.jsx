@@ -56,22 +56,22 @@ export default function Screening() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-nc-brown-card mb-4">Screening Kecemasan</h1>
-        <p className="text-xl text-gray-600">Jawablah pertanyaan berikut sesuai kondisi Anda.</p>
+    <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
+      <div className="text-center mb-8 md:mb-12">
+        <h1 className="text-3xl md:text-5xl font-bold text-nc-brown-card mb-4">Screening Kecemasan</h1>
+        <p className="text-lg md:text-xl text-gray-600">Jawablah pertanyaan berikut sesuai kondisi Anda.</p>
       </div>
 
-      <div className="bg-white rounded-[40px] border-4 border-[#FDE5D2] p-8 md:p-12 shadow-xl">
+      <div className="bg-white rounded-[32px] md:rounded-[40px] border-4 border-[#FDE5D2] p-6 md:p-12 shadow-xl">
         {screeningQuestions.map((question, index) => (
-          <div key={index} className="mb-10 last:mb-0">
-            <p className="font-bold text-xl text-gray-800 mb-6">{index + 1}. {question}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div key={index} className="mb-8 md:mb-10 last:mb-0">
+            <p className="font-bold text-lg md:text-xl text-gray-800 mb-4 md:mb-6">{index + 1}. {question}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
               {options.map((option) => (
                 <label 
                   key={option.value} 
                   className={`
-                    cursor-pointer rounded-2xl py-4 px-6 text-center font-bold text-lg transition-all border-2
+                    cursor-pointer rounded-2xl py-3 md:py-4 px-4 md:px-6 text-center font-bold text-base md:text-lg transition-all border-2
                     ${answers[index] === option.value 
                       ? 'bg-nc-grass text-white border-nc-grass shadow-lg transform -translate-y-1' 
                       : 'bg-gray-50 text-gray-500 border-gray-200 hover:border-nc-grass hover:bg-nc-grass/5'}
@@ -91,11 +91,11 @@ export default function Screening() {
           </div>
         ))}
 
-        <div className="pt-8 mt-8 border-t-4 border-[#FDE5D2]">
+        <div className="pt-6 md:pt-8 mt-6 md:mt-8 border-t-4 border-[#FDE5D2]">
           <button 
             onClick={handleSubmit} 
             disabled={submitting}
-            className="w-full bg-nc-wood hover:bg-[#D05A2B] text-white font-bold text-2xl py-4 rounded-full shadow-lg transition-all transform active:scale-95 disabled:opacity-70"
+            className="w-full bg-nc-wood hover:bg-[#D05A2B] text-white font-bold text-xl md:text-2xl py-3 md:py-4 rounded-full shadow-lg transition-all transform active:scale-95 disabled:opacity-70"
           >
             {submitting ? 'Memproses...' : 'Lihat Hasil'}
           </button>
