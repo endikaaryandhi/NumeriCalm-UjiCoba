@@ -10,7 +10,7 @@ import { toast } from 'sonner';
 import mascotHappy from '../assets/mascot-happy.png';
 
 export default function Profile() {
-  const { user } = useAuth(); // Hapus 'signOut' karena tidak dipakai di sini
+  const { user } = useAuth(); 
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [saveLoading, setSaveLoading] = useState(false);
@@ -97,11 +97,17 @@ export default function Profile() {
     }
   };
 
-  // Helper untuk warna badge kategori
+  // Helper untuk warna badge kategori (DIMODIFIKASI)
   const getCategoryColor = (cat) => {
-    if (cat === 'Rendah') return 'bg-nc-grass text-white';
+    // Rendah = Oren Tua
+    if (cat === 'Rendah') return 'bg-orange-600 text-white';
+    
+    // Sedang = Kuning
     if (cat === 'Sedang') return 'bg-nc-yellow text-nc-brown-dark';
-    if (cat === 'Tinggi') return 'bg-nc-wood text-white';
+    
+    // Tinggi = Hijau
+    if (cat === 'Tinggi') return 'bg-nc-grass text-white';
+    
     return 'bg-gray-200 text-gray-800';
   };
 
@@ -119,8 +125,6 @@ export default function Profile() {
            <p className="text-nc-brown-card/80 text-lg">Bagaimana perasaanmu belajar matematika hari ini?</p>
         </div>
         
-        {/* Tombol Logout DIHAPUS DARI SINI sesuai permintaan */}
-
         {/* Mascot Decoration */}
         <img 
             src={mascotHappy} 
@@ -223,7 +227,6 @@ export default function Profile() {
                     <History size={40} />
                   </div>
                   <p className="mb-4">Kamu belum pernah melakukan screening.</p>
-                  <Button className="bg-nc-wood text-white" onClick={() => window.location.href='/screening'}>Mulai Screening Sekarang</Button>
                 </div>
               ) : (
                 <div className="overflow-y-auto max-h-[500px] p-6 space-y-4">
