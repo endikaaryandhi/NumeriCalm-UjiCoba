@@ -2,6 +2,9 @@ import React from 'react';
 import { useLocation, Link, Navigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import mascotHappy from '../assets/mascot-happy1 (1).png';
+import mascotSad from '../assets/mascot-sad.png';
+import mascotCry from '../assets/mascot-cry.png';
 
 export default function ScreeningResult() {
   const location = useLocation();
@@ -10,24 +13,35 @@ export default function ScreeningResult() {
   if (score === undefined || category === undefined) {
     return <Navigate to="/screening" />;
   }
+  
+  let mascotImage;
+  let bgColor;
+  let textColor;
 
-  let mascotImage = "/assets/mascot-jump.png";
-  let bgColor = "bg-nc-grass";
-  let textColor = "text-nc-grass-dark";
-
-  if (category === "Sedang") {
-    mascotImage = "/assets/mascot-sad.png";
+  if (category === "Tinggi") {
+    mascotImage = mascotHappy;
+    bgColor = "bg-nc-grass";
+    textColor = "text-nc-grass-dark";
+  } else if (category === "Sedang") {
+    mascotImage = mascotSad;
     bgColor = "bg-nc-yellow";
     textColor = "text-yellow-700";
-  } else if (category === "Tinggi") {
-    mascotImage = "/assets/mascot-cry.png";
+  } else {
+    mascotImage = mascotCry;
     bgColor = "bg-nc-wood";
     textColor = "text-red-800";
   }
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12 text-center">
-      <img src={mascotImage} alt={`Mascot ${category}`} className="h-48 mx-auto mb-8" />
+      
+      {/* Gambar Maskot */}
+      <img 
+        src={mascotImage} 
+        alt={`Mascot ${category}`} 
+        className="h-48 mx-auto mb-8 drop-shadow-xl hover:scale-105 transition-transform" 
+      />
+      
       <Card className={`border-4 ${bgColor.replace('bg-', 'border-')}/30`}>
         <CardHeader>
           <CardTitle className="text-4xl">Hasil Screening Anda</CardTitle>

@@ -7,7 +7,7 @@ export default function Privacy() {
     <div className="max-w-5xl mx-auto px-6 py-12">
       <div className="text-center mb-16">
         <h1 className="text-5xl font-bold text-nc-wood mb-6">Kebijakan Privasi</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 max-w-2x2 mx-auto">
           Kami percaya bahwa pengalaman belajar yang baik dimulai dari rasa aman.
         </p>
       </div>

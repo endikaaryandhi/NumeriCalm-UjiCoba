@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, ClipboardList, Gamepad2, ArrowRight, Info } from 'lucide-react';
 import { useModal } from '../context/ModalContext';
+import mascotSantai from '../assets/mascot-santai.png';
 
 export default function OnboardingModal() {
   const { isOpen, closeModal } = useModal();
@@ -28,7 +29,13 @@ export default function OnboardingModal() {
           
           {step === 1 && (
             <div className="w-full animate-in slide-in-from-right-4 duration-300">
-              <img src="/assets/mascot-jump.png" alt="Welcome" className="h-40 mx-auto drop-shadow-lg mb-6 hover:scale-105 transition-transform" />
+              {/* --- 2. GUNAKAN VARIABEL IMPORT DI SINI --- */}
+              <img 
+                src={mascotSantai} 
+                alt="Welcome" 
+                className="h-40 mx-auto drop-shadow-lg mb-0 hover:scale-105 transition-transform" 
+              />
+              
               <h2 className="text-3xl font-extrabold text-nc-wood mb-2">Selamat Datang!</h2>
               <p className="text-xl font-bold text-nc-sky mb-4">Your first step to stress free math!</p>
               <div className="bg-nc-cream p-4 rounded-2xl border-2 border-nc-wood/10">
