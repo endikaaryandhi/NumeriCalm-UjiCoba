@@ -7,7 +7,7 @@ export default function Privacy() {
     <div className="max-w-5xl mx-auto px-6 py-12">
       <div className="text-center mb-16">
         <h1 className="text-5xl font-bold text-nc-wood mb-6">Kebijakan Privasi</h1>
-        <p className="text-xl text-gray-600 max-w-2x2 mx-auto">
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
           Kami percaya bahwa pengalaman belajar yang baik dimulai dari rasa aman.
         </p>
       </div>
@@ -35,6 +35,7 @@ export default function Privacy() {
       </div>
 
       <div className="bg-[#FFE8D1] rounded-[40px] p-10 md:p-12 relative overflow-hidden shadow-sm">
+        {/* Tambahkan z-10 agar teks selalu di atas gambar */}
         <div className="relative z-10 max-w-3xl">
           <div className="flex items-center gap-4 mb-6">
             <div className="bg-white p-3 rounded-full shadow-sm">
@@ -64,10 +65,11 @@ export default function Privacy() {
           </div>
         </div>
         
+        {/* --- MODIFIKASI RESPONSIF --- */}
         <img 
           src={mascotRun} 
           alt="Mascot Running" 
-          className="absolute -bottom-1 -right-1 h-65 object-contain opacity-100 hidden md:block transform rotate-6" 
+          className="absolute -bottom-1 -right-5 h-32 md:h-70 object-contain opacity-80 md:opacity-100 transform rotate-6 md:rotate-12 block" 
         />
       </div>
     </div>
