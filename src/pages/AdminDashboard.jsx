@@ -15,9 +15,10 @@ export default function AdminDashboard() {
 
   async function fetchResults() {
     try {
+      // Ambil data screening beserta profil user (email, nama, umur)
       const { data, error } = await supabase
         .from('screening_results')
-        .select('*, profiles(email)')
+        .select('*, profiles(email, full_name, age)')
         .order('created_at', { ascending: false });
 
       if (error) throw error;
@@ -49,6 +50,7 @@ export default function AdminDashboard() {
     <div className="max-w-6xl mx-auto px-4 md:px-6 py-8 md:py-12 space-y-8">
       <h1 className="text-3xl md:text-4xl font-bold text-nc-wood text-center md:text-left">Admin Dashboard</h1>
       
+      {/* Statistik Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
          {stats.map(stat => (
             <Card key={stat.name} className="border-2" style={{borderColor: stat.color}}>
@@ -63,6 +65,7 @@ export default function AdminDashboard() {
          ))}
       </div>
 
+      {/* Grafik Chart */}
       <Card>
         <CardHeader>
           <CardTitle>Statistik Kategori Kecemasan</CardTitle>
@@ -84,6 +87,7 @@ export default function AdminDashboard() {
         </CardContent>
       </Card>
 
+      {/* Tabel Riwayat */}
       <Card>
         <CardHeader>
           <CardTitle>Riwayat Submit Terbaru</CardTitle>
@@ -94,7 +98,8 @@ export default function AdminDashboard() {
               <thead className="text-xs text-nc-brown-dark uppercase bg-nc-cream/50 font-bold">
                 <tr>
                   <th className="px-4 md:px-6 py-3 md:py-4 rounded-tl-xl">Tanggal</th>
-                  <th className="px-4 md:px-6 py-3 md:py-4">Email Pengguna</th>
+                  {/* Header Kolom Baru */}
+                  <th className="px-4 md:px-6 py-3 md:py-4">Identitas Pengguna</th>
                   <th className="px-4 md:px-6 py-3 md:py-4">Skor Total</th>
                   <th className="px-4 md:px-6 py-3 md:py-4 rounded-tr-xl">Kategori</th>
                 </tr>
@@ -102,8 +107,20 @@ export default function AdminDashboard() {
               <tbody>
                 {results.map((result) => (
                   <tr key={result.id} className="bg-white border-b border-gray-100 hover:bg-gray-50">
-                    <td className="px-4 md:px-6 py-3 md:py-4 font-medium">{new Date(result.created_at).toLocaleDateString('id-ID')}</td>
-                    <td className="px-4 md:px-6 py-3 md:py-4">{result.profiles?.email || 'Guest'}</td>
+                    <td className="px-4 md:px-6 py-3 md:py-4 font-medium">
+                        {new Date(result.created_at).toLocaleDateString('id-ID')}
+                    </td>
+                    <td className="px-4 md:px-6 py-3 md:py-4">
+                       {/* Menampilkan Data Nama & Umur */}
+                       <div className="flex flex-col">
+                          <span className="font-bold text-nc-wood text-base">
+                              {result.profiles?.full_name || 'Tanpa Nama'}
+                          </span>
+                          <span className="text-xs text-gray-500 mt-0.5">
+                              {result.profiles?.age ? `${result.profiles.age} Tahun` : '-'} | {result.profiles?.email}
+                          </span>
+                       </div>
+                    </td>
                     <td className="px-4 md:px-6 py-3 md:py-4 font-bold">{result.total_score}</td>
                     <td className="px-4 md:px-6 py-3 md:py-4">
                        <span className={`px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap

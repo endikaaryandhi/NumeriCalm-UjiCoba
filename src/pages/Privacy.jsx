@@ -1,12 +1,13 @@
 import React from 'react';
 import { ShieldCheck, Lock, HeartHandshake, Stethoscope } from 'lucide-react';
+import mascotRun from '../assets/mascot-run.png';
 
 export default function Privacy() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
       <div className="text-center mb-16">
         <h1 className="text-5xl font-bold text-nc-wood mb-6">Kebijakan Privasi</h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 max-w-2x2 mx-auto">
           Kami percaya bahwa pengalaman belajar yang baik dimulai dari rasa aman.
         </p>
       </div>
@@ -64,9 +65,9 @@ export default function Privacy() {
         </div>
         
         <img 
-          src="/assets/mascot-run.png" 
+          src={mascotRun} 
           alt="Mascot Running" 
-          className="absolute -bottom-10 -right-10 h-80 object-contain opacity-90 hidden md:block transform rotate-12" 
+          className="absolute -bottom-1 -right-1 h-65 object-contain opacity-100 hidden md:block transform rotate-6" 
         />
       </div>
     </div>

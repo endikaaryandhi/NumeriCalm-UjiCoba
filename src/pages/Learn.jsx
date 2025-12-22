@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card';
 import { Brain, Smile, BookOpen, Users, Lightbulb, Heart } from 'lucide-react';
+import mascotSemangat from '../assets/mascot-semagat1.png';
 
 export default function Learn() {
   const tips = [
@@ -35,14 +36,8 @@ export default function Learn() {
               <CardTitle className="text-3xl text-gray-800">Apa itu Kecemasan Matematika?</CardTitle>
             </CardHeader>
             <CardContent className="prose max-w-none text-gray-600 text-lg leading-relaxed">
-              <p>
-                Kadang kalau kamu merasa tegang, takut atau bahkan jadi ngga mau mengerjakan soal matematika. Itu namanya Kecemasan Matematika.
-              </p>
-              <p>
-                Perasaan ini bisa muncul waktu belajar di kelas, ngerjain PR di rumah atau bahkan ketemu matematika di kehidupan sehari-hari.
-              </p>
-              <p>
-                Kamu yang mengalami Kecemasan Matematika biasanya jadi ingin menghindar atau ngga mau berhadapan dengan matematika, karena kamu merasa takut salah atau bingung.
+              <p className= "text-justify">
+                Kadang kalau kamu merasa tegang, takut atau bahkan jadi ngga mau mengerjakan soal matematika. Itu namanya Kecemasan Matematika. Perasaan ini bisa muncul waktu belajar di kelas, ngerjain PR di rumah atau bahkan ketemu matematika di kehidupan sehari-hari. Kamu yang mengalami Kecemasan Matematika biasanya jadi ingin menghindar atau ngga mau berhadapan dengan matematika, karena kamu merasa takut salah atau bingung.
               </p>
             </CardContent>
           </Card>
@@ -92,17 +87,23 @@ export default function Learn() {
            <div className="bg-[#FFE8D1] rounded-[40px] p-8 text-center relative overflow-hidden">
               <h3 className="text-2xl font-bold text-nc-brown-card mb-4">Kamu Bisa!</h3>
               <p className="text-nc-brown-card/80 mb-6">Jangan biarkan rasa cemas menghalangimu. Mulai perlahan dan percaya diri.</p>
-              <img src="/assets/mascot-jump.png" alt="Mascot Semangat" className="w-full object-contain drop-shadow-md hover:scale-105 transition-transform duration-300" />
+              
+              {/* --- 2. GUNAKAN VARIABEL IMPORT DI SINI --- */}
+              <img 
+                src={mascotSemangat} 
+                alt="Mascot Semangat" 
+                className="w-full object-contain drop-shadow-md hover:scale-105 transition-transform duration-300" 
+              />
            </div>
         </div>
       </div>
 
       <div className="mt-16">
         <div className="flex items-center gap-4 mb-8">
-           <div className="bg-nc-grass p-3 rounded-2xl shadow-sm transform -rotate-3">
+            <div className="bg-nc-grass p-3 rounded-2xl shadow-sm transform -rotate-3">
               <Smile size={40} className="text-white" />
-           </div>
-           <h2 className="text-4xl font-bold text-gray-800">10 Tips Belajar Lebih Tenang</h2>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-800">10 Tips Belajar Lebih Tenang</h2>
         </div>
         
         <div className="grid md:grid-cols-2 gap-6">
@@ -122,8 +123,8 @@ export default function Learn() {
 
       <div className="mt-16 p-8 bg-gray-50 rounded-[30px] border-2 border-gray-200">
         <div className="flex items-center gap-3 mb-4 opacity-70">
-           <BookOpen size={20} />
-           <h3 className="font-bold text-lg uppercase tracking-wider">Referensi Ilmiah</h3>
+            <BookOpen size={20} />
+            <h3 className="font-bold text-lg uppercase tracking-wider">Referensi Ilmiah</h3>
         </div>
         <ul className="space-y-3 text-sm text-gray-500 list-disc pl-5">
             <li>Anita, I. W. (2014). Pengaruh Kecemasan Matematika (Mathematics Anxiety) terhadap Kemampuan Koneksi Matematis Siswa SMP. Infinity Journal, 3(1), 125-132</li>
